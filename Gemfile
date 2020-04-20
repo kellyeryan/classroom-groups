@@ -23,9 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'react_on_rails', '11.2.2'  
+gem 'react_on_rails', '11.2.2'
 gem 'devise'
-
+gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
