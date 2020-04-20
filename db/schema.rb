@@ -10,28 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_162149) do
+ActiveRecord::Schema.define(version: 2020_04_20_173232) do
 
-  create_table "classnames", force: :cascade do |t|
+  create_table "class_groups", force: :cascade do |t|
     t.string "name"
-    t.integer "teacher_id"
-    t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_classnames_on_student_id"
-    t.index ["teacher_id"], name: "index_classnames_on_teacher_id"
   end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
+    t.integer "class_group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "teachers", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["class_group_id"], name: "index_students_on_class_group_id"
   end
 
 end
