@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '189996d97bc5a124a0fda700f09d956bf079e69f9602eb437bebbed274c3398d0cce3c22600356ee3ad4abd45e6b3bad5093b065a815f4a3db149a04e5214dd9'
+  # config.secret_key = '4db5dfd756a878caee3658ac152641be4f12240f06fa9606f0a938a87255e27c57ab29bbdeb38bc06d9057fa6570ec7f54f80365820796e2d2ab1c162a469a67'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -21,7 +21,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'UserMailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'd92c49f122374888dfd0e13dd861e73c78c64bda194e0107456e3493e4f056f33794eddd40f446452cf6c87af3911c917748de8b912d0e569a3a3434db215d9c'
+  # config.pepper = '94e3a48502f86cb16413fc53ddabd0fb50265bb22ba5c22dc2dea6af61e77c9a197fa8e1e9cd4492998f11e10879dbe3c744bbecb2ef31ff333ae1ec8b83f305'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -232,7 +232,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -259,7 +259,10 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  GITHUB_APP_ID = Rails.application.credentials.dig(:github_app_id)
+  GITHUB_SECRET_ID = Rails.application.credentials.dig(:github_secret_id)
+
+  config.omniauth :github, GITHUB_APP_ID, GITHUB_SECRET_ID, scope: 'user'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
