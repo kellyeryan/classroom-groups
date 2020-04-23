@@ -1,5 +1,8 @@
 <section class="text-center m-5">
-    <h1 class="text-center" >Welcome To Basic Rails 6 Auth</h1>
+
+ <%= react_component("Hello", { name: "#{current_user.name}" }) %>
+
+    <h1 class="text-center" >Welcome to Classroom Groups!</h1>
     <p>Rails 6 auth using devise</p>
     <% if current_user %>
         <h5><%= current_user.email %></h5>
@@ -9,8 +12,5 @@
             link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-5')
         end
     %>
-
-
-    <%= javascript_pack_tag 'hello_react' %>
 
 </section>

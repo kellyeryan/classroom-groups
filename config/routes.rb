@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
@@ -15,5 +14,8 @@ Rails.application.routes.draw do
   end
 
   root to: 'application#home'
+  resources :classes do
+    resources :students 
+  end
 end
 
