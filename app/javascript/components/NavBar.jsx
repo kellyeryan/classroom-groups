@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom'
 import "../stylesheets/Header.css"
 
-const NavBar = props => (
+const NavBar = () => (
     <header className="NavBar">
         <nav className="Nav">
             <a href="/">Home</a>

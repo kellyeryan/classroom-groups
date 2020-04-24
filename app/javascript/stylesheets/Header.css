@@ -1,6 +1,5 @@
 .Header {
     display: grid;
-    grid-template-areas: "logo nav";
 }
 
 .Nav {
