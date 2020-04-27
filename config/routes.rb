@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'application#home'
-  resources :classes do
+  resources :class_groups do
     resources :students 
   end
 end

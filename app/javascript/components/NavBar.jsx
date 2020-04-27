@@ -6,7 +6,7 @@ const NavBar = () => (
     <header className="NavBar">
         <nav className="Nav">
             <a href="/">Home</a>
-            <a href="/">Classes</a>
+            <a href="/class_groups">Classes</a>
             <a href="/">Students</a>
             <button>Logout</button>
         </nav>

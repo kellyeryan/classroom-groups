@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from 'react-dom'
 
 function ListOfClasses(props) {
     console.log(props)
