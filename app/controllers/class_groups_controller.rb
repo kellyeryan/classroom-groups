@@ -9,4 +9,19 @@ class ClassGroupsController < ApplicationController
         @class_group = ClassGroup.new
     end
 
+    def create
+        @class_group = ClassGroup.new(class_group_params)
+        if @class_group.save
+            current_user.id = @class_group.user_id
+         else
+            render new_class_group_path
+        end
+    end
+
+    private
+
+    def class_group_params
+        params.require(:class_group).permit(:name)
+    end
+
 end
