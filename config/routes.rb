@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   end
 
   root to: 'application#home'
-  resources :class_groups do
+  resources :class_groups, except: :create do
+    collection do
+      get :create_new
+    end
     resources :students 
   end
 end
