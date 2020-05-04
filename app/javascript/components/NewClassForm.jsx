@@ -15,11 +15,17 @@ function NewClassForm() {
             <Container fluid>
                 <Form>
                     <Form.Row>
-                        <Col xs={1}>
-                            <Form.Label>Class</Form.Label>
+                        <Col xs={2}>
+                            <Form.Label>Class Name</Form.Label>
                         </Col>
                         <Col md={{ span: 3 }}>
-                            <Form.Control type="input" />
+                            <Form.Control
+                                type="input"
+                                onChange={(e) => {
+                                    setKlassName(e.target.value)
+                                }}
+                            />
+                            {klassName}
                         </Col>
                         <Button variant="primary" type="submit">
                             Submit
